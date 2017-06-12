@@ -5,9 +5,6 @@ describe Account do
   let(:wealthy_account) { described_class.new(3000) }
   let(:student_account) { described_class.new(10.54) }
 
-  it { is_expected.to be_a Account }
-  it { is_expected.to respond_to :current_balance }
-
   it 'starts with an empty transaction history' do
     expect(account.history.entries).to be_empty
   end

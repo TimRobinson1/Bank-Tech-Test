@@ -3,8 +3,6 @@ require 'transaction_log'
 describe TransactionLog do
   let(:log) { described_class.new }
 
-  it { is_expected.to respond_to :update }
-
   it 'starts with an empty history' do
     expect(log.entries).to be_empty
   end

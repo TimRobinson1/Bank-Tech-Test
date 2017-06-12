@@ -6,9 +6,6 @@ describe Printer do
     double :entry, date: 'now', credit: '10', debit: '', recorded_balance: '20'
   end
 
-  it { is_expected.to be_a Printer }
-  it { is_expected.to respond_to :display_statement }
-
   it 'returns the provided balance with correct formatting' do
     expect(printer.display_balance(500.440123)).to eq '500.44'
   end
