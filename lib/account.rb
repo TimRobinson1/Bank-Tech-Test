@@ -3,7 +3,7 @@ require_relative 'printer'
 
 # Manages a user's bank account
 class Account
-  attr_reader :name, :history
+  attr_reader :history
 
   NEW_BALANCE = 0
 

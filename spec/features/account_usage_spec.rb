@@ -14,7 +14,6 @@ feature 'User interaction' do
     @account = Account.new('Dave', 10)
     @date = Time.new.strftime('%d-%m-%Y')
     expect(@account.current_balance).to eq '10.00'
-    expect(@account.name).to eq 'Dave'
   end
 
   def makes_some_deposits

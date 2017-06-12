@@ -8,10 +8,6 @@ describe Account do
   it { is_expected.to be_a Account }
   it { is_expected.to respond_to :current_balance }
 
-  it "holds the account owner's name" do
-    expect(account.name).to eq 'Jane'
-  end
-
   it 'starts with an empty transaction history' do
     expect(account.history).to be_empty
   end

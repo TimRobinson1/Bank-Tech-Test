@@ -2,13 +2,9 @@
 class Printer
   BALANCE_HEADER = '   date   ||  credit  ||  debit   ||  balance'.freeze
 
-  def initialize
-    @header = BALANCE_HEADER
-  end
-
-  def display_statement(account)
-    puts @header
-    account.each do |transaction|
+  def display_statement(entries)
+    puts BALANCE_HEADER
+    entries.each do |transaction|
       puts align_row(transaction).join('||')
     end
   end
