@@ -2,7 +2,7 @@ require 'account'
 
 describe Account do
   let(:account) { described_class.new('Jane') }
-  let(:large_account) { described_class.new('Rich', 3000) }
+  let(:wealthy_account) { described_class.new('Rich', 3000) }
   let(:student_account) { described_class.new('Student', 10.54) }
 
   it { is_expected.to be_a Account }
@@ -21,7 +21,7 @@ describe Account do
   end
 
   it 'can be set with a higher starting balance' do
-    expect(large_account.current_balance).to eq '3000.00'
+    expect(wealthy_account.current_balance).to eq '3000.00'
   end
 
   it 'can display decimal point values in a balance' do
@@ -45,6 +45,22 @@ describe Account do
       account.deposit(50)
       first_deposit = account.history[0]
       expect(first_deposit.recorded_balance).to eq 20
+    end
+  end
+
+  describe '#withdraw' do
+    it 'removes specified amount from the balance' do
+      wealthy_account.withdraw(300)
+      expect(wealthy_account.current_balance).to eq '2700.00'
+    end
+
+    it 'removes specified amount from the balance' do
+      wealthy_account.withdraw(300)
+      expect(wealthy_account.current_balance).to eq '2700.00'
+    end
+
+    it 'raises error if the withdrawal is more than available' do
+      expect { account.withdraw(50) }.to raise_error 'Insufficient funds'
     end
   end
 end

@@ -1,6 +1,6 @@
 # Manages information on a withdrawal of money.
 class Withdrawal
-  attr_reader :amount
+  attr_reader :amount, :date, :recorded_balance
 
   def initialize(amount = 0, current_balance = 0, date = Time.new)
     @amount = amount
