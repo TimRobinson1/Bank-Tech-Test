@@ -52,3 +52,8 @@ and Transaction.
 After beginning to build the program, I extracted the Deposit and Withdrawal class from Transaction,
 however this was later reverted as although it was an effective solution, my code was no longer
 adhering to the DRY principles (Don't Repeat Yourself).
+
+After reaching the stage that was originally in my head as 'completed', I realised that my Account class was working
+to both make and record transactions, which didn't feel like appropriate encapsulation to me.  As such, it was
+extracted so that the Account class only interacts with the TransactionLog class, and the responsibility
+of recording new transactions was delegated appropriately.
