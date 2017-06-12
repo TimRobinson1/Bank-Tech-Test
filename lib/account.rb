@@ -1,38 +1,36 @@
-require_relative 'transaction'
+require_relative 'transaction_log'
 require_relative 'printer'
 
-# Manages a user's bank account
+# Understands account activity
 class Account
   attr_reader :history
 
   def deposit(amount)
-    @history << Transaction.new(:deposit, amount, @balance)
+    @history.update(:deposit, amount, @balance)
     @balance += amount.round(2)
   end
 
   def withdraw(amount)
     raise 'Insufficient funds' if insufficient_funds?(amount)
-    @history << Transaction.new(:withdrawal, amount, @balance)
+    @history.update(:withdrawal, amount, @balance)
     @balance -= amount.round(2)
   end
 
   def current_balance
-    format('%.2f', @balance)
+    @printer.display_balance(@balance)
   end
 
   def bank_statement
     @printer.display_statement(@history)
-    "#{@name}'s available funds: £#{current_balance}"
   end
 
   private
 
   NEW_BALANCE = 0
 
-  def initialize(name = 'Client', starting_balance = NEW_BALANCE)
-    @name = name
+  def initialize(starting_balance = NEW_BALANCE)
     @balance = starting_balance
-    @history = []
+    @history = TransactionLog.new
     @printer = Printer.new
   end
 

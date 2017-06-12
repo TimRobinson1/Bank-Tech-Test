@@ -9,6 +9,10 @@ describe Printer do
   it { is_expected.to be_a Printer }
   it { is_expected.to respond_to :display_statement }
 
+  it 'returns the provided balance with correct formatting' do
+    expect(printer.display_balance(500.440123)).to eq '500.44'
+  end
+
   it 'has a default balance header when printing' do
     expect { printer.display_statement([]) }
       .to output(Printer::BALANCE_HEADER + "\n").to_stdout

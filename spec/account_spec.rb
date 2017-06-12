@@ -1,15 +1,15 @@
 require 'account'
 
 describe Account do
-  let(:account) { described_class.new('Jane') }
-  let(:wealthy_account) { described_class.new('Rich', 3000) }
-  let(:student_account) { described_class.new('Student', 10.54) }
+  let(:account) { described_class.new }
+  let(:wealthy_account) { described_class.new(3000) }
+  let(:student_account) { described_class.new(10.54) }
 
   it { is_expected.to be_a Account }
   it { is_expected.to respond_to :current_balance }
 
   it 'starts with an empty transaction history' do
-    expect(account.history).to be_empty
+    expect(account.history.entries).to be_empty
   end
 
   describe '#current_balance' do
@@ -41,7 +41,7 @@ describe Account do
     it 'records old balances successfully' do
       account.deposit(20)
       account.deposit(50)
-      first_deposit = account.history[0]
+      first_deposit = account.history.entries[0]
       expect(first_deposit.recorded_balance).to eq '20.00'
     end
   end
@@ -66,11 +66,6 @@ describe Account do
     it 'displays in standard output' do
       expect(STDOUT).to receive(:puts)
       account.bank_statement
-    end
-
-    it 'returns available funds after statement' do
-      expect(STDOUT).to receive(:puts)
-      expect(account.bank_statement).to eq "Jane's available funds: £0.00"
     end
 
     it 'outputs empty statement with no history' do

@@ -1,10 +1,14 @@
 # Displays user's account balance
 class Printer
-  def display_statement(entries)
+  def display_statement(log)
     puts BALANCE_HEADER
-    entries.reverse.each do |transaction|
+    log.entries.reverse.each do |transaction|
       puts align_row(transaction).join('||')
     end
+  end
+
+  def display_balance(balance)
+    format('%.2f', balance)
   end
 
   private
@@ -18,6 +22,6 @@ class Printer
       transaction.debit,
       transaction.recorded_balance
     ]
-    row.map { |x| (x || '').center(10, ' ') }
+    row.map { |entry| (entry || '').center(10, ' ') }
   end
 end

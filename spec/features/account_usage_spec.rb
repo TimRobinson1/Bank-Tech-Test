@@ -11,7 +11,7 @@ feature 'User interaction' do
   end
 
   def sets_up_new_account
-    @account = Account.new('Dave', 10)
+    @account = Account.new(10)
     @date = Time.new.strftime('%d-%m-%Y')
     expect(@account.current_balance).to eq '10.00'
   end
@@ -34,13 +34,13 @@ feature 'User interaction' do
   end
 
   def checks_first_deposit
-    first_deposit = @account.history[0]
+    first_deposit = @account.history.entries[0]
     expect(first_deposit.recorded_balance).to eq '110.34'
     expect(first_deposit.date).to eq @date
   end
 
   def checks_first_withdrawal
-    first_withdrawal = @account.history[2]
+    first_withdrawal = @account.history.entries[2]
     expect(first_withdrawal.amount).to eq '100.00'
     expect(first_withdrawal.recorded_balance).to eq '14.33'
   end

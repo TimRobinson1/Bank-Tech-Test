@@ -1,4 +1,4 @@
-# Records account transaction values
+# Understands transaction values
 class Transaction
   attr_reader :amount, :date, :recorded_balance, :credit, :debit
 
@@ -8,13 +8,13 @@ class Transaction
     @amount = format('%.2f', amount)
     @type = type
     @date = date.strftime('%d-%m-%Y')
-    @recorded_balance = record_balance(current_balance, amount)
+    @recorded_balance = format('%.2f', record_balance(current_balance, amount))
     deposit? ? @credit = @amount : @debit = @amount
   end
 
   def record_balance(balance, amount)
-    return format('%.2f', balance + amount) if deposit?
-    format('%.2f', balance - amount)
+    return balance + amount if deposit?
+    balance - amount
   end
 
   def deposit?
