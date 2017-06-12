@@ -6,6 +6,8 @@
         null,
         1,
         2,
+        null,
+        2,
         null
       ],
       "/Users/timrobinson/Desktop/Coding_Projects/Git_Projects/Makers/course/week-10/tech-tests/bank/lib/account.rb": [
@@ -17,8 +19,32 @@
         1,
         null,
         null
+      ],
+      "/Users/timrobinson/Desktop/Coding_Projects/Git_Projects/Makers/course/week-10/tech-tests/bank/spec/printer_spec.rb": [
+        1,
+        null,
+        1,
+        2,
+        null
+      ],
+      "/Users/timrobinson/Desktop/Coding_Projects/Git_Projects/Makers/course/week-10/tech-tests/bank/lib/printer.rb": [
+        1,
+        null,
+        null
+      ],
+      "/Users/timrobinson/Desktop/Coding_Projects/Git_Projects/Makers/course/week-10/tech-tests/bank/spec/transaction_spec.rb": [
+        1,
+        null,
+        1,
+        2,
+        null
+      ],
+      "/Users/timrobinson/Desktop/Coding_Projects/Git_Projects/Makers/course/week-10/tech-tests/bank/lib/transaction.rb": [
+        1,
+        null,
+        null
       ]
     },
-    "timestamp": 1497261010
+    "timestamp": 1497261433
   }
 }
