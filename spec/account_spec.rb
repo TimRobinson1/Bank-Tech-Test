@@ -63,4 +63,20 @@ describe Account do
       expect { account.withdraw(50) }.to raise_error 'Insufficient funds'
     end
   end
+
+  describe '#bank_statement' do
+    it 'outputs empty statement with no history' do
+      expect(STDOUT).to receive(:puts).with(Printer::BALANCE_HEADER)
+      account.bank_statement
+    end
+
+    it 'outputs transactional history' do
+      date = (Time.new).strftime("%d-%m-%Y")
+      expect(STDOUT).to receive(:puts).with(Printer::BALANCE_HEADER)
+      expect(STDOUT).to receive(:puts)
+      .with("     #{date}     ||       50.00        ||       50.00        ")
+      account.deposit(50)
+      account.bank_statement
+    end
+  end
 end
