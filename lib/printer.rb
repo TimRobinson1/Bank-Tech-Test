@@ -1,7 +1,5 @@
 # Displays user's account balance
 class Printer
-  BALANCE_HEADER = '   date   ||  credit  ||  debit   ||  balance'.freeze
-
   def display_statement(entries)
     puts BALANCE_HEADER
     entries.reverse.each do |transaction|
@@ -10,6 +8,8 @@ class Printer
   end
 
   private
+
+  BALANCE_HEADER = '   date   ||  credit  ||  debit   ||  balance'.freeze
 
   def align_row(transaction)
     row = [
