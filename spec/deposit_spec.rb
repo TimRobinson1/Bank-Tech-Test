@@ -6,7 +6,7 @@ describe Deposit do
   it { is_expected.to be_a Deposit }
 
   it 'holds the deposited balance' do
-    expect(deposit.amount).to eq 100
+    expect(deposit.amount).to eq '100.00'
   end
 
   it 'records the date of the deposit' do
@@ -15,6 +15,6 @@ describe Deposit do
   end
 
   it 'records the balance' do
-    expect(deposit.recorded_balance).to eq 100
+    expect(deposit.recorded_balance).to eq '100.00'
   end
 end

@@ -44,7 +44,7 @@ describe Account do
       account.deposit(20)
       account.deposit(50)
       first_deposit = account.history[0]
-      expect(first_deposit.recorded_balance).to eq 20
+      expect(first_deposit.recorded_balance).to eq '20.00'
     end
   end
 

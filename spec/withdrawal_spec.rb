@@ -6,7 +6,7 @@ describe Withdrawal do
   it { is_expected.to be_a Withdrawal }
 
   it 'holds the withdrawn balance' do
-    expect(withdrawal.amount).to eq 150
+    expect(withdrawal.amount).to eq '150.00'
   end
 
   it 'records the date of the withdrawal' do
@@ -15,6 +15,6 @@ describe Withdrawal do
   end
 
   it 'records the balance' do
-    expect(withdrawal.recorded_balance).to eq 50
+    expect(withdrawal.recorded_balance).to eq '50.00'
   end
 end
