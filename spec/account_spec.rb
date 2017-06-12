@@ -16,6 +16,10 @@ describe Account do
     expect(account.current_balance).to eq '0.00'
   end
 
+  it 'starts with an empty transaction history' do
+    expect(account.history).to be_empty
+  end
+
   it 'can be set with a higher starting balance' do
     expect(large_account.current_balance).to eq '3000.00'
   end
@@ -26,6 +30,11 @@ describe Account do
 
   describe '#deposit' do
     it 'adds supplied funds to the balance' do
+      account.deposit(300)
+      expect(account.current_balance).to eq '300.00'
+    end
+
+    it 'adds successively supplied funds to the balance' do
       account.deposit(300)
       account.deposit(50.30)
       expect(account.current_balance).to eq '350.30'
