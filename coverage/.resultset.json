@@ -123,9 +123,31 @@
         null
       ],
       "/Users/timrobinson/Desktop/Coding_Projects/Git_Projects/Makers/course/week-10/tech-tests/bank/spec/withdrawal_spec.rb": [
-
+        1,
+        null,
+        1,
+        2,
+        null,
+        2,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/timrobinson/Desktop/Coding_Projects/Git_Projects/Makers/course/week-10/tech-tests/bank/lib/withdrawal.rb": [
+        null,
+        1,
+        1,
+        null,
+        1,
+        2,
+        2,
+        2,
+        null,
+        null
       ]
     },
-    "timestamp": 1497265234
+    "timestamp": 1497265433
   }
 }
