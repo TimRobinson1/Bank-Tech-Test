@@ -7,6 +7,10 @@ class Account
     @balance = starting_balance
   end
 
+  def deposit(amount)
+    @balance += amount
+  end
+
   def current_balance
     format('%.2f', @balance)
   end

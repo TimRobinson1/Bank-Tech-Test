@@ -23,4 +23,12 @@ describe Account do
   it 'can display decimal point values in a balance' do
     expect(student_account.current_balance).to eq '10.54'
   end
+
+  describe '#deposit' do
+    it 'adds supplied funds to the balance' do
+      account.deposit(300)
+      account.deposit(50.30)
+      expect(account.current_balance).to eq '350.30'
+    end
+  end
 end
