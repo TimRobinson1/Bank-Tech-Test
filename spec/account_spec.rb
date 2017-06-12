@@ -60,6 +60,14 @@ describe Account do
   end
 
   describe '#bank_statement' do
+    before do
+      Timecop.freeze(Time.local(2017))
+    end
+
+    after do
+      Timecop.return
+    end
+
     it 'displays in standard output' do
       expect(STDOUT).to receive(:puts)
       account.bank_statement
@@ -71,12 +79,11 @@ describe Account do
     end
 
     it 'outputs transactional history' do
-      date = Time.new.strftime('%d-%m-%Y')
-      expect(STDOUT).to receive(:puts).with(Printer::BALANCE_HEADER)
-      expect(STDOUT).to receive(:puts)
-        .with("#{date}||  50.00   ||          ||  50.00   ")
       account.deposit(50)
-      account.bank_statement
+      expect { account.bank_statement }.to output(
+        "#{Printer::BALANCE_HEADER}\n" \
+        "#{Time.new.strftime('%d-%m-%Y')}||  50.00   ||          ||  50.00   \n"
+      ).to_stdout
     end
   end
 end
