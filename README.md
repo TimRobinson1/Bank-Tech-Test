@@ -13,11 +13,21 @@ Quickstart guide
 * Install the gem dependencies by running ```bundle install```
 * Run ```rspec``` and ```rubocop``` to ensure everything is working correctly.
 * Start up your REPL of choice in the command line, such as ```irb``` or ```pry```.
+* Be sure to require the account file using ```require './lib/account'```
+
+Available commands
+---------------
+Assuming that you are in a REPL and have required the file, assign the class to a
+variable for usage.  In this case, we will use ```account = Account.new```
+* ```deposit(n)``` - This will deposit the specified funds into the account.
+* ```withdraw(n)``` - This will withdraw the specified funds from the account.
+* ```current_balance``` - Display's the user's current balance.
+* ```bank_statement``` - This will print out the current statement in the REPL.
 
 
-Example Usage
+Example usage
 -------------
-![Pry Example](pry_example.png?raw=true "An Example using the REPL: Pry")
+![Pry Example](example_usage.png?raw=true "An Example using the REPL: Pry")
 
 
 Technologies used
@@ -33,11 +43,12 @@ Specified requirements
 * The balance should display all information, including the date, the amount, and the balance at that time.
 * Ability to interact with the code via a REPL.
 
-Example account display
-------------
-```
-date || credit || debit || balance
-14/01/2012 || || 500.00 || 2500.00
-13/01/2012 || 2000.00 || || 3000.00
-10/01/2012 || 1000.00 || || 1000.00
-```
+Development Process
+-------------
+I first approached the issue by planning out the classes and the interactions between them
+that I'd need to get the program running properly.  Originally, I had decided on the classes: Account, Printer,
+and Transaction.
+
+After beginning to build the program, I extracted the Deposit and Withdrawal class from Transaction,
+however this was later reverted as although it was an effective solution, my code was no longer
+adhering to the DRY principles (Don't Repeat Yourself).

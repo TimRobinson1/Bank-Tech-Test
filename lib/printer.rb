@@ -4,7 +4,7 @@ class Printer
 
   def display_statement(entries)
     puts BALANCE_HEADER
-    entries.each do |transaction|
+    entries.reverse.each do |transaction|
       puts align_row(transaction).join('||')
     end
   end
