@@ -71,10 +71,10 @@ describe Account do
     end
 
     it 'outputs transactional history' do
-      date = (Time.new).strftime("%d-%m-%Y")
+      date = Time.new.strftime('%d-%m-%Y')
       expect(STDOUT).to receive(:puts).with(Printer::BALANCE_HEADER)
       expect(STDOUT).to receive(:puts)
-      .with("     #{date}     ||       50.00        ||       50.00        ")
+        .with("     #{date}     ||       50.00        ||       50.00        ")
       account.deposit(50)
       account.bank_statement
     end

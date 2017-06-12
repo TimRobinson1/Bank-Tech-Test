@@ -1,5 +1,6 @@
+# Displays user's account balance
 class Printer
-  BALANCE_HEADER = 'date || credit || debit || balance'
+  BALANCE_HEADER = 'date || credit || debit || balance'.freeze
 
   def initialize
     @header = BALANCE_HEADER

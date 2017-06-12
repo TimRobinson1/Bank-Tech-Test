@@ -10,7 +10,7 @@ describe Deposit do
   end
 
   it 'records the date of the deposit' do
-    current_date = (Time.new).strftime("%d-%m-%Y")
+    current_date = Time.new.strftime('%d-%m-%Y')
     expect(deposit.date).to eq current_date
   end
 

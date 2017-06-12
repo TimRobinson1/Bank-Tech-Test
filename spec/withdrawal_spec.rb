@@ -10,7 +10,7 @@ describe Withdrawal do
   end
 
   it 'records the date of the withdrawal' do
-    current_date = (Time.new).strftime("%d-%m-%Y")
+    current_date = Time.new.strftime('%d-%m-%Y')
     expect(withdrawal.date).to eq current_date
   end
 

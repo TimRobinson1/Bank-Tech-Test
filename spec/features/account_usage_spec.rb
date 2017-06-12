@@ -12,7 +12,7 @@ feature 'User interaction' do
 
   def sets_up_new_account
     @account = Account.new('Dave', 10)
-    @date = (Time.new).strftime("%d-%m-%Y")
+    @date = Time.new.strftime('%d-%m-%Y')
     expect(@account.current_balance).to eq '10.00'
     expect(@account.name).to eq 'Dave'
   end
