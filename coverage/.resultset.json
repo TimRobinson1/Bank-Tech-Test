@@ -82,6 +82,7 @@
         14,
         14,
         14,
+        14,
         null,
         null,
         1,
@@ -97,6 +98,10 @@
         null,
         1,
         12,
+        null,
+        null,
+        1,
+        0,
         null,
         null,
         1,
@@ -132,6 +137,15 @@
       ],
       "/Users/timrobinson/Desktop/Coding_Projects/Git_Projects/Makers/course/week-10/tech-tests/bank/lib/printer.rb": [
         1,
+        1,
+        null,
+        1,
+        16,
+        null,
+        null,
+        1,
+        0,
+        null,
         null
       ],
       "/Users/timrobinson/Desktop/Coding_Projects/Git_Projects/Makers/course/week-10/tech-tests/bank/spec/deposit_spec.rb": [
@@ -210,6 +224,9 @@
         1,
         null,
         1,
+        1,
+        null,
+        2,
         2,
         null
       ],
@@ -236,6 +253,6 @@
         null
       ]
     },
-    "timestamp": 1497268425
+    "timestamp": 1497271531
   }
 }

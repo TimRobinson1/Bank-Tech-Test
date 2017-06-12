@@ -10,6 +10,7 @@ class Account
     @name = name
     @balance = starting_balance
     @history = []
+    @printer = Printer.new
   end
 
   def deposit(amount)
@@ -25,6 +26,10 @@ class Account
 
   def current_balance
     format('%.2f', @balance)
+  end
+
+  def bank_statement
+    @printer.display_statement(@history)
   end
 
   private
