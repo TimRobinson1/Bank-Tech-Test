@@ -1,5 +1,4 @@
-require_relative 'deposit'
-require_relative 'withdrawal'
+require_relative 'transaction'
 require_relative 'printer'
 
 # Manages a user's bank account
@@ -14,13 +13,13 @@ class Account
   end
 
   def deposit(amount)
-    @history << Deposit.new(amount, @balance)
+    @history << Transaction.new(:deposit, amount, @balance)
     @balance += amount.round(2)
   end
 
   def withdraw(amount)
     raise 'Insufficient funds' if insufficient_funds?(amount)
-    @history << Withdrawal.new(amount, @balance)
+    @history << Transaction.new(:withdrawal, amount, @balance)
     @balance -= amount.round(2)
   end
 
@@ -30,7 +29,7 @@ class Account
 
   def bank_statement
     @printer.display_statement(@history)
-    "#{@name}'s available funds: £#{@balance}"
+    "#{@name}'s available funds: £#{current_balance}"
   end
 
   private

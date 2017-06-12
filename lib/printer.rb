@@ -22,6 +22,6 @@ class Printer
       transaction.debit,
       transaction.recorded_balance
     ]
-    row.map { |x| x.center(10, ' ') }
+    row.map { |x| (x || '').center(10, ' ') }
   end
 end

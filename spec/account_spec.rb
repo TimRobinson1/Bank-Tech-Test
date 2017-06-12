@@ -12,20 +12,22 @@ describe Account do
     expect(account.name).to eq 'Jane'
   end
 
-  it 'starts with a default balance of zero' do
-    expect(account.current_balance).to eq '0.00'
-  end
-
   it 'starts with an empty transaction history' do
     expect(account.history).to be_empty
   end
 
-  it 'can be set with a higher starting balance' do
-    expect(wealthy_account.current_balance).to eq '3000.00'
-  end
+  describe '#current_balance' do
+    it 'starts with a default balance of zero' do
+      expect(account.current_balance).to eq '0.00'
+    end
 
-  it 'can display decimal point values in a balance' do
-    expect(student_account.current_balance).to eq '10.54'
+    it 'can be set with a higher starting balance' do
+      expect(wealthy_account.current_balance).to eq '3000.00'
+    end
+
+    it 'can display decimal point values in a balance' do
+      expect(student_account.current_balance).to eq '10.54'
+    end
   end
 
   describe '#deposit' do
@@ -72,7 +74,7 @@ describe Account do
 
     it 'returns available funds after statement' do
       expect(STDOUT).to receive(:puts)
-      expect(account.bank_statement).to eq "Jane's available funds: £0"
+      expect(account.bank_statement).to eq "Jane's available funds: £0.00"
     end
 
     it 'outputs empty statement with no history' do
@@ -88,6 +90,5 @@ describe Account do
       account.deposit(50)
       account.bank_statement
     end
-
   end
 end
