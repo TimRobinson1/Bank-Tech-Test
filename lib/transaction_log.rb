@@ -4,12 +4,14 @@ require_relative 'transaction'
 class TransactionLog
   attr_reader :entries
 
+  def update(type, amount, balance)
+    @entries << @entry.new(type, amount, balance)
+  end
+
+  private
+
   def initialize(entry = Transaction)
     @entry = entry
     @entries = []
-  end
-
-  def update(type, amount, balance)
-    @entries << @entry.new(type, amount, balance)
   end
 end
