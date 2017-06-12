@@ -39,5 +39,12 @@ describe Account do
       account.deposit(50.30)
       expect(account.current_balance).to eq '350.30'
     end
+
+    it 'records old balances successfully' do
+      account.deposit(20)
+      account.deposit(50)
+      first_deposit = account.history[0]
+      expect(first_deposit.recorded_balance).to eq 20
+    end
   end
 end

@@ -11,7 +11,7 @@ class Account
   end
 
   def deposit(amount)
-    @history << Deposit.new(amount)
+    @history << Deposit.new(amount, @balance)
     @balance += amount
   end
 

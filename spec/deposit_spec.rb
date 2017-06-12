@@ -13,4 +13,8 @@ describe Deposit do
     current_date = (Time.new).strftime("%d-%m-%Y")
     expect(deposit.date).to eq current_date
   end
+
+  it 'records the balance' do
+    expect(deposit.recorded_balance).to eq 100
+  end
 end
