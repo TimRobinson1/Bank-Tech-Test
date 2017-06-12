@@ -74,7 +74,7 @@ describe Account do
       date = Time.new.strftime('%d-%m-%Y')
       expect(STDOUT).to receive(:puts).with(Printer::BALANCE_HEADER)
       expect(STDOUT).to receive(:puts)
-        .with("     #{date}     ||       50.00        ||       50.00        ")
+        .with("12-06-2017||  50.00   ||          ||  50.00   ")
       account.deposit(50)
       account.bank_statement
     end
