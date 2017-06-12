@@ -1,4 +1,4 @@
-# Displays user's account balance
+# Understands printing account information
 class Printer
   def display_statement(log)
     puts BALANCE_HEADER
