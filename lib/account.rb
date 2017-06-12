@@ -15,13 +15,13 @@ class Account
 
   def deposit(amount)
     @history << Deposit.new(amount, @balance)
-    @balance += amount
+    @balance += amount.round(2)
   end
 
   def withdraw(amount)
     raise 'Insufficient funds' if insufficient_funds?(amount)
     @history << Withdrawal.new(amount, @balance)
-    @balance -= amount
+    @balance -= amount.round(2)
   end
 
   def current_balance
@@ -30,6 +30,7 @@ class Account
 
   def bank_statement
     @printer.display_statement(@history)
+    "#{@name}'s available funds: £#{@balance}"
   end
 
   private

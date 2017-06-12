@@ -65,18 +65,29 @@ describe Account do
   end
 
   describe '#bank_statement' do
-    it 'outputs empty statement with no history' do
-      expect(STDOUT).to receive(:puts).with(Printer::BALANCE_HEADER)
+    it 'displays in standard output' do
+      expect(STDOUT).to receive(:puts)
       account.bank_statement
+    end
+
+    it 'returns available funds after statement' do
+      expect(STDOUT).to receive(:puts)
+      expect(account.bank_statement).to eq "Jane's available funds: £0"
+    end
+
+    it 'outputs empty statement with no history' do
+      expect { account.bank_statement }
+        .to output(Printer::BALANCE_HEADER + "\n").to_stdout
     end
 
     it 'outputs transactional history' do
       date = Time.new.strftime('%d-%m-%Y')
       expect(STDOUT).to receive(:puts).with(Printer::BALANCE_HEADER)
       expect(STDOUT).to receive(:puts)
-        .with("12-06-2017||  50.00   ||          ||  50.00   ")
+        .with("#{date}||  50.00   ||          ||  50.00   ")
       account.deposit(50)
       account.bank_statement
     end
+
   end
 end

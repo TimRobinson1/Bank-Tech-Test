@@ -10,14 +10,14 @@ describe Printer do
   it { is_expected.to respond_to :display_statement }
 
   it 'has a default balance header when printing' do
-    expect(STDOUT).to receive(:puts).with(Printer::BALANCE_HEADER)
-    printer.display_statement([])
+    expect { printer.display_statement([]) }
+      .to output(Printer::BALANCE_HEADER + "\n").to_stdout
   end
 
   it 'displays transactions with formatted alignment' do
     expect(STDOUT).to receive(:puts).with(Printer::BALANCE_HEADER)
     expect(STDOUT).to receive(:puts)
-      .with("   now    ||    10    ||          ||    20    ")
+      .with('   now    ||    10    ||          ||    20    ')
     printer.display_statement([entry])
   end
 end

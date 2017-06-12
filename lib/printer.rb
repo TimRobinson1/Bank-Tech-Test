@@ -8,7 +8,6 @@ class Printer
 
   def display_statement(account)
     puts @header
-    puts "-"*46
     account.each do |transaction|
       puts align_row(transaction).join('||')
     end
