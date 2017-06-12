@@ -1,5 +1,6 @@
-require_relative './deposit'
-require_relative './withdrawal'
+require_relative 'deposit'
+require_relative 'withdrawal'
+require_relative 'printer'
 
 # Manages a user's bank account
 class Account

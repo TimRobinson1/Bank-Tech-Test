@@ -1,4 +1,3 @@
-
 # Manages information on a deposit of money.
 class Deposit
   attr_reader :amount, :date, :recorded_balance
