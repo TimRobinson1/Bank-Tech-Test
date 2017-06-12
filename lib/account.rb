@@ -5,7 +5,9 @@ require_relative 'printer'
 class Account
   attr_reader :name, :history
 
-  def initialize(name = 'User', starting_balance = 0)
+  NEW_BALANCE = 0
+
+  def initialize(name = 'Client', starting_balance = NEW_BALANCE)
     @name = name
     @balance = starting_balance
     @history = []

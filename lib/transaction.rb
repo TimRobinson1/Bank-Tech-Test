@@ -6,17 +6,13 @@ class Transaction
     @amount = format('%.2f', amount)
     @type = type
     @date = date.strftime('%d-%m-%Y')
-    @recorded_balance = adjust_balance(current_balance, amount)
-    assign_transaction_value
+    @recorded_balance = record_balance(current_balance, amount)
+    deposit? ? @credit = @amount : @debit = @amount
   end
 
   private
 
-  def assign_transaction_value
-    deposit? ? @credit = @amount : @debit = @amount
-  end
-
-  def adjust_balance(balance, amount)
+  def record_balance(balance, amount)
     return format('%.2f', balance + amount) if deposit?
     format('%.2f', balance - amount)
   end
