@@ -10,6 +10,7 @@ class Transaction
     @date = Time.new.strftime('%d-%m-%Y')
     @recorded_balance = format('%.2f', record_balance(current_balance, amount))
     deposit? ? @credit = @amount : @debit = @amount
+    # instance_variable_set("@#{type}", @amount)
   end
 
   def record_balance(balance, amount)

@@ -3,7 +3,10 @@ require 'printer'
 describe Printer do
   let(:printer) { described_class.new }
   let(:entry) do
-    double :entry, date: 'now', credit: '10', debit: '', recorded_balance: '20'
+    double :transaction, date: 'now',
+                         credit: '10',
+                         debit: '',
+                         recorded_balance: '20'
   end
 
   it 'returns the provided balance with correct formatting' do
@@ -17,7 +20,15 @@ describe Printer do
 
   it 'displays transactions with formatted alignment' do
     expect { printer.display_statement([entry]) }.to output(
-      "#{Printer::BALANCE_HEADER}\n" \
+      "   date   ||  credit  ||  debit   ||  balance\n" \
+      "   now    ||    10    ||          ||    20    \n"
+    ).to_stdout
+  end
+
+  it 'displays multiple transactions' do
+    expect { printer.display_statement([entry, entry]) }.to output(
+      "   date   ||  credit  ||  debit   ||  balance\n" \
+      "   now    ||    10    ||          ||    20    \n" \
       "   now    ||    10    ||          ||    20    \n"
     ).to_stdout
   end
