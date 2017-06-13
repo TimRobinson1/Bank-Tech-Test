@@ -4,10 +4,10 @@ class Transaction
 
   private
 
-  def initialize(type, amount = 0, current_balance = 0, date = Time.new)
+  def initialize(type, amount = 0, current_balance = 0)
     @amount = format('%.2f', amount)
     @type = type
-    @date = date.strftime('%d-%m-%Y')
+    @date = Time.new.strftime('%d-%m-%Y')
     @recorded_balance = format('%.2f', record_balance(current_balance, amount))
     deposit? ? @credit = @amount : @debit = @amount
   end
