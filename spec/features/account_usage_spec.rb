@@ -2,6 +2,7 @@ require 'account'
 
 feature 'User interaction' do
   scenario 'basic account usage' do
+    allow(STDOUT).to receive(:puts)
     sets_up_new_account
     makes_some_deposits
     withdraws_cash
@@ -33,13 +34,13 @@ feature 'User interaction' do
   end
 
   def checks_first_deposit
-    first_deposit = @account.history.entries[0]
+    first_deposit = @account.bank_statement[2]
     expect(first_deposit.recorded_balance).to eq '110.34'
     expect(first_deposit.date).to eq Time.new.strftime('%d-%m-%Y')
   end
 
   def checks_first_withdrawal
-    first_withdrawal = @account.history.entries[2]
+    first_withdrawal = @account.bank_statement[0]
     expect(first_withdrawal.amount).to eq '100.00'
     expect(first_withdrawal.recorded_balance).to eq '14.33'
   end

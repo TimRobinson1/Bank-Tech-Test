@@ -3,8 +3,6 @@ require_relative 'printer'
 
 # Understands account activity
 class Account
-  attr_reader :history
-
   def deposit(amount)
     @history.update(:deposit, amount, @balance)
     @balance += amount.round(2)

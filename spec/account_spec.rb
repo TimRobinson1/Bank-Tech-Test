@@ -5,10 +5,6 @@ describe Account do
   let(:wealthy_account) { described_class.new(3000) }
   let(:student_account) { described_class.new(10.54) }
 
-  it 'starts with an empty transaction history' do
-    expect(account.history.entries).to be_empty
-  end
-
   describe '#current_balance' do
     it 'starts with a default balance of zero' do
       expect(account.current_balance).to eq '0.00'
@@ -36,9 +32,10 @@ describe Account do
     end
 
     it 'records old balances successfully' do
+      allow(STDOUT).to receive(:puts)
       account.deposit(20)
       account.deposit(50)
-      first_deposit = account.history.entries[0]
+      first_deposit = account.bank_statement[1]
       expect(first_deposit.recorded_balance).to eq '20.00'
     end
   end
