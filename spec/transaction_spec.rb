@@ -1,8 +1,8 @@
 require 'transaction'
 
 describe Transaction do
-  let(:deposit) { described_class.new(:deposit, 100) }
-  let(:withdrawal) { described_class.new(:withdrawal, 100) }
+  let(:deposit) { described_class.new(:deposit, 100, 150) }
+  let(:withdrawal) { described_class.new(:withdrawal, 100, 50) }
 
   it 'holds the transactioned balance' do
     expect(deposit.amount).to eq '100.00'
@@ -14,7 +14,7 @@ describe Transaction do
   end
 
   it 'records the balance' do
-    expect(deposit.recorded_balance).to eq '100.00'
+    expect(deposit.recorded_balance).to eq '150.00'
   end
 
   it 'records a deposit as a credited value' do
